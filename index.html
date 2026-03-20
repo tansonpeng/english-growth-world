@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>英语成长世界</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-badge" aria-hidden="true">★</span>
+          <div>
+            <p class="eyebrow">Learning World</p>
+            <h1>英语成长世界</h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="ghost-button icon-button" id="toggle-voice" aria-pressed="true" aria-label="语音开">
+            🔊
+          </button>
+          <button class="ghost-button" id="open-parent">家长</button>
+        </div>
+      </header>
+
+      <section class="world-screen" id="world-screen">
+        <div class="map-shell" id="map-shell" aria-label="英语世界地图">
+          <svg class="map-bg" viewBox="0 0 1600 900" aria-hidden="true" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFF6DA" />
+                <stop offset="100%" stop-color="#EAF8EF" />
+              </linearGradient>
+              <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#DFF6C8" />
+                <stop offset="100%" stop-color="#BEEB95" />
+              </linearGradient>
+              <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D6F0FF" />
+                <stop offset="100%" stop-color="#A7DEFF" />
+              </linearGradient>
+              <filter id="mapShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#B6A98A" flood-opacity="0.16" />
+              </filter>
+            </defs>
+
+            <rect width="1600" height="900" rx="40" fill="url(#sky)" />
+            <ellipse cx="760" cy="470" rx="470" ry="250" fill="#CFF0A9" opacity="0.3" />
+            <ellipse cx="1140" cy="532" rx="310" ry="160" fill="#BFE8FF" opacity="0.35" />
+            <ellipse cx="452" cy="548" rx="330" ry="180" fill="#FFF2C6" opacity="0.44" />
+
+            <g class="cloud cloud-a">
+              <ellipse cx="246" cy="228" rx="48" ry="26" fill="#FFFFFF" opacity="0.82" />
+              <ellipse cx="286" cy="220" rx="58" ry="32" fill="#FFFFFF" opacity="0.88" />
+              <ellipse cx="334" cy="232" rx="44" ry="24" fill="#FFFFFF" opacity="0.8" />
+            </g>
+            <g class="cloud cloud-b">
+              <ellipse cx="1210" cy="208" rx="46" ry="24" fill="#FFFFFF" opacity="0.82" />
+              <ellipse cx="1250" cy="200" rx="60" ry="30" fill="#FFFFFF" opacity="0.88" />
+              <ellipse cx="1300" cy="212" rx="44" ry="22" fill="#FFFFFF" opacity="0.8" />
+            </g>
+            <g class="cloud cloud-c">
+              <ellipse cx="950" cy="160" rx="38" ry="20" fill="#FFFFFF" opacity="0.72" />
+              <ellipse cx="986" cy="154" rx="50" ry="26" fill="#FFFFFF" opacity="0.82" />
+              <ellipse cx="1028" cy="162" rx="34" ry="18" fill="#FFFFFF" opacity="0.72" />
+            </g>
+
+            <path class="route route-back" d="M276 624C380 556 478 572 586 520C694 468 758 404 862 392C964 380 1034 426 1128 400C1218 374 1290 306 1372 286" stroke="#F3D98B" stroke-width="34" stroke-linecap="round" stroke-dasharray="1 24" />
+            <path class="route route-main" d="M320 614C418 562 512 570 612 534C702 502 766 448 858 438C946 428 1018 472 1106 456C1198 438 1268 386 1350 356" stroke="#D9BB5A" stroke-width="10" stroke-linecap="round" opacity="0.72" />
+
+            <g filter="url(#mapShadow)">
+              <path d="M200 498H366V632H200Z" fill="#FFF3C9" />
+              <path d="M200 532L283 470L366 532" fill="#FFB24B" />
+              <rect x="252" y="548" width="60" height="56" rx="14" fill="#FFFDF8" />
+              <path d="M524 404H692V538H524Z" fill="#E2F7E9" />
+              <path d="M524 440L608 378L692 440" fill="#6FD36A" />
+              <rect x="576" y="454" width="60" height="58" rx="14" fill="#FFFDF8" />
+              <path d="M852 330H1024V466H852Z" fill="#E7F3FF" />
+              <path d="M852 364L938 304L1024 364" fill="#7BC8FF" />
+              <rect x="906" y="392" width="60" height="56" rx="14" fill="#FFFDF8" />
+              <path d="M1172 250H1348V388H1172Z" fill="#FFF1C3" />
+              <path d="M1172 284L1260 224L1348 284" fill="#FFD55F" />
+              <rect x="1228" y="312" width="62" height="56" rx="14" fill="#FFFDF8" />
+            </g>
+
+            <circle cx="284" cy="496" r="34" fill="#FFFFFF" stroke="#E7D39A" stroke-width="4" />
+            <circle cx="608" cy="430" r="32" fill="#FFFFFF" stroke="#C9E8D0" stroke-width="4" />
+            <circle cx="938" cy="332" r="32" fill="#FFFFFF" stroke="#B9DCF3" stroke-width="4" />
+            <circle cx="1260" cy="272" r="32" fill="#FFFFFF" stroke="#E7D39A" stroke-width="4" />
+
+            <g class="map-spark spark-a">
+              <circle cx="466" cy="724" r="18" fill="#FFDA7C" />
+              <circle cx="508" cy="724" r="18" fill="#FFDA7C" />
+              <circle cx="550" cy="724" r="18" fill="#FFDA7C" />
+            </g>
+            <g class="map-spark spark-b">
+              <circle cx="266" cy="702" r="14" fill="#57C83A" />
+              <circle cx="308" cy="702" r="14" fill="#57C83A" />
+              <circle cx="350" cy="702" r="14" fill="#D9E4F0" />
+            </g>
+
+            <path id="trail-path" d="M320 614C418 562 512 570 612 534C702 502 766 448 858 438C946 428 1018 472 1106 456C1198 438 1268 386 1350 356" fill="none" />
+            <circle class="trail-dot" cx="760" cy="680" r="9" fill="#FFF7D2" stroke="#F0C65B" stroke-width="3">
+              <animateMotion dur="4.8s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#trail-path" />
+              </animateMotion>
+            </circle>
+          </svg>
+
+          <button class="map-node fox-node" data-lesson="fox" aria-label="狐狸">
+            <span class="node-emoji">🦊</span>
+          </button>
+          <button class="map-node bear-node" data-lesson="bear" aria-label="小熊">
+            <span class="node-emoji">🐻</span>
+          </button>
+          <button class="map-node cat-node active" data-lesson="cat" aria-label="小猫">
+            <span class="node-emoji">🐱</span>
+          </button>
+          <button class="map-node rabbit-node" data-lesson="rabbit" aria-label="小兔">
+            <span class="node-emoji">🐰</span>
+          </button>
+
+          <button class="map-start" id="start-lesson" aria-label="开始学习">
+            <span>▶</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <section class="lesson-screen hidden" id="lesson-screen" aria-hidden="true">
+      <div class="lesson-card">
+        <button class="back-link" id="back-to-world" aria-label="返回地图">←</button>
+        <div class="lesson-art" id="lesson-art" aria-hidden="true">🐱</div>
+        <div class="lesson-word" id="lesson-word">cat</div>
+        <div class="lesson-actions">
+          <button class="voice-button" id="speak-word">🔊</button>
+          <button class="primary-button" id="practice-btn">开始</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="parent-panel hidden" id="parent-panel" aria-hidden="true">
+      <div class="parent-card">
+        <div class="parent-head">
+          <p class="eyebrow">Parent</p>
+          <button class="ghost-button small" id="close-parent">关闭</button>
+        </div>
+        <div class="parent-grid">
+          <div class="parent-stat">
+            <span>今日</span>
+            <strong>5 分钟</strong>
+          </div>
+          <div class="parent-stat">
+            <span>连续</span>
+            <strong>7 天</strong>
+          </div>
+          <div class="parent-stat">
+            <span>当前</span>
+            <strong>C / cat</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
