@@ -1,19 +1,19 @@
 :root {
   --bg: #f7fbf2;
-  --paper: #fffdf8;
+  --paper: #fffef9;
   --ink: #27324b;
   --muted: #6f7d96;
-  --green: #7bcf39;
-  --green-deep: #5ea920;
+  --green: #7bdc45;
+  --green-deep: #55b92f;
   --yellow: #ffe27a;
   --yellow-deep: #e5c952;
-  --blue: #9addff;
-  --blue-deep: #71b9e3;
+  --blue: #9bdcff;
+  --blue-deep: #66b7e9;
   --line: #dbe8cd;
-  --shadow: 0 8px 0 #dce9cf, 0 18px 28px rgba(63, 89, 43, 0.08);
-  --shadow-soft: 0 8px 0 rgba(220, 233, 207, 0.95);
-  --radius-xl: 32px;
-  --radius-lg: 24px;
+  --shadow: 0 10px 0 #dce9cf, 0 22px 32px rgba(63, 89, 43, 0.08);
+  --shadow-soft: 0 10px 0 rgba(220, 233, 207, 0.92);
+  --radius-xl: 34px;
+  --radius-lg: 26px;
   --radius-md: 18px;
 }
 
@@ -33,8 +33,8 @@ body {
   font-family: "Noto Sans SC", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(255, 226, 122, 0.5), transparent 24%),
-    radial-gradient(circle at top right, rgba(154, 221, 255, 0.35), transparent 24%),
+    radial-gradient(circle at top left, rgba(255, 226, 122, 0.52), transparent 24%),
+    radial-gradient(circle at top right, rgba(154, 221, 255, 0.38), transparent 24%),
     linear-gradient(180deg, #f9fff4 0%, #eef8e7 100%);
 }
 
@@ -65,7 +65,7 @@ button:disabled {
   gap: 16px;
   padding: 18px 24px;
   border-radius: 30px;
-  background: rgba(255, 253, 248, 0.92);
+  background: rgba(255, 253, 248, 0.96);
   border: 3px solid var(--line);
   box-shadow: var(--shadow);
 }
@@ -174,12 +174,22 @@ h1 {
 
 .map-shell {
   position: relative;
-  min-height: clamp(640px, 76vh, 820px);
-  border-radius: 40px;
+  min-height: clamp(620px, 76vh, 840px);
+  border-radius: 44px;
   overflow: hidden;
   border: 3px solid rgba(215, 225, 198, 0.95);
   box-shadow: var(--shadow);
   background: #f8fbf3;
+}
+
+.map-shell::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 34px;
+  border: 2px dashed rgba(255, 255, 255, 0.65);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .map-bg {
@@ -267,16 +277,16 @@ h1 {
 
 .map-node {
   position: absolute;
-  width: 124px;
-  height: 124px;
-  border-radius: 34px;
+  width: 126px;
+  height: 126px;
+  border-radius: 38px;
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.94);
-  border: 3px solid rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.95);
+  border: 4px solid rgba(255, 255, 255, 0.95);
   box-shadow: var(--shadow-soft);
   z-index: 2;
-  animation: pulseSpark 2.6s ease-in-out infinite;
+  animation: pulseSpark 2.8s ease-in-out infinite;
 }
 
 .map-node .node-emoji {
@@ -286,6 +296,22 @@ h1 {
 
 .map-node.active {
   outline: 7px solid rgba(123, 207, 57, 0.24);
+}
+
+.fox-node {
+  background: linear-gradient(180deg, #fff3cf 0%, #ffffff 100%);
+}
+
+.bear-node {
+  background: linear-gradient(180deg, #dcf8e8 0%, #ffffff 100%);
+}
+
+.cat-node {
+  background: linear-gradient(180deg, #e2f4ff 0%, #ffffff 100%);
+}
+
+.rabbit-node {
+  background: linear-gradient(180deg, #fff1c6 0%, #ffffff 100%);
 }
 
 .fox-node {
@@ -317,8 +343,8 @@ h1 {
   left: 50%;
   bottom: 12%;
   transform: translateX(-50%);
-  width: 112px;
-  height: 112px;
+  width: 116px;
+  height: 116px;
   border-radius: 50%;
   background: #fff;
   border: 4px solid #e7e2cf;
@@ -350,7 +376,7 @@ h1 {
   width: min(760px, calc(100vw - 32px));
   min-height: 520px;
   padding: 28px;
-  border-radius: 42px;
+  border-radius: 44px;
   background: linear-gradient(180deg, #fffdf8 0%, #f8fbf3 100%);
   border: 4px solid var(--line);
   box-shadow: var(--shadow);
@@ -376,7 +402,7 @@ h1 {
 .lesson-art {
   width: 240px;
   height: 240px;
-  border-radius: 64px;
+  border-radius: 70px;
   display: grid;
   place-items: center;
   background: linear-gradient(180deg, #fff3c8 0%, #ffffff 100%);
@@ -390,6 +416,13 @@ h1 {
   font-size: clamp(3.2rem, 6vw, 5.6rem);
   font-weight: 800;
   line-height: 1;
+}
+
+.lesson-subcopy {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+  text-align: center;
 }
 
 .lesson-actions {
@@ -466,6 +499,26 @@ h1 {
   .parent-grid {
     grid-template-columns: 1fr;
   }
+
+  .fox-node {
+    left: 10%;
+    bottom: 16%;
+  }
+
+  .bear-node {
+    left: 28%;
+    top: 35%;
+  }
+
+  .cat-node {
+    left: 54%;
+    top: 32%;
+  }
+
+  .rabbit-node {
+    right: 9%;
+    top: 20%;
+  }
 }
 
 @media (max-width: 720px) {
@@ -473,53 +526,152 @@ h1 {
     padding: 14px;
   }
 
+  .topbar {
+    padding: 14px 16px;
+    border-radius: 26px;
+  }
+
+  .brand-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 7vw, 2.4rem);
+  }
+
+  .ghost-button,
+  .primary-button,
+  .voice-button {
+    padding: 12px 16px;
+  }
+
   .map-shell {
-    min-height: 620px;
+    min-height: 640px;
+    border-radius: 34px;
   }
 
   .map-node {
-    width: 104px;
-    height: 104px;
-    border-radius: 30px;
+    width: 92px;
+    height: 92px;
+    border-radius: 28px;
   }
 
   .map-node .node-emoji {
-    font-size: 3.4rem;
+    font-size: 3rem;
   }
 
   .fox-node {
-    left: 8%;
-    bottom: 16%;
+    left: 6%;
+    bottom: 15%;
   }
 
   .bear-node {
-    left: 28%;
+    left: 26%;
+    top: 34%;
   }
 
   .cat-node {
-    left: 54%;
-    top: 30%;
+    left: 52%;
+    top: 31%;
   }
 
   .rabbit-node {
-    right: 7%;
+    right: 6%;
+    top: 18%;
   }
 
   .map-start {
-    width: 96px;
-    height: 96px;
-    bottom: 10%;
+    width: 88px;
+    height: 88px;
+    bottom: 9%;
+    font-size: 1.8rem;
   }
 
   .lesson-card {
-    min-height: 460px;
+    width: min(100vw - 20px, 680px);
+    min-height: 420px;
     padding: 22px;
+    border-radius: 32px;
   }
 
   .lesson-art {
-    width: 200px;
-    height: 200px;
-    font-size: 6.8rem;
+    width: 180px;
+    height: 180px;
+    font-size: 6.2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .topbar {
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+  }
+
+  .map-shell {
+    min-height: 560px;
+  }
+
+  .map-shell::before {
+    inset: 10px;
+  }
+
+  .map-node {
+    width: 82px;
+    height: 82px;
+    border-radius: 24px;
+  }
+
+  .map-node .node-emoji {
+    font-size: 2.6rem;
+  }
+
+  .fox-node {
+    left: 4%;
+  }
+
+  .bear-node {
+    left: 24%;
+  }
+
+  .cat-node {
+    left: 49%;
+  }
+
+  .rabbit-node {
+    right: 4%;
+  }
+
+  .map-start {
+    width: 78px;
+    height: 78px;
+    bottom: 8%;
+    font-size: 1.55rem;
+  }
+
+  .lesson-card {
+    padding: 18px;
+    width: calc(100vw - 16px);
+  }
+
+  .lesson-art {
+    width: 160px;
+    height: 160px;
+    border-radius: 56px;
+    font-size: 5.4rem;
+  }
+
+  .lesson-word {
+    font-size: clamp(2.7rem, 14vw, 4rem);
   }
 }
 

@@ -114,8 +114,29 @@ parentPanel.addEventListener("click", (event) => {
   }
 });
 
+lessonScreen.addEventListener("click", (event) => {
+  if (event.target === lessonScreen) {
+    closeLesson();
+  }
+});
+
 mapShell.addEventListener("click", () => {
   userHasInteracted = true;
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  if (!parentPanel.classList.contains("hidden")) {
+    closeParent();
+    return;
+  }
+
+  if (!lessonScreen.classList.contains("hidden")) {
+    closeLesson();
+  }
 });
 
 updateVoiceButton();
